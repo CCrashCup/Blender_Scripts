@@ -76,13 +76,16 @@ while bpy.context.visible_objects:
 #    print(obj)                 # for debugging
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
-    bpy.ops.object.select_linked(type='MATERIAL')
+    if bpy.ops.object.select_linked.poll():
+        bpy.ops.object.select_linked(type='MATERIAL')
     if bpy.ops.object.join.poll():
         bpy.ops.object.join()
-    bpy.ops.object.editmode_toggle()
+    if bpy.ops.object.editmode_toggle.poll():
+        bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.mesh.remove_doubles()
-    bpy.ops.object.editmode_toggle()
+    if bpy.ops.object.editmode_toggle.poll():
+        bpy.ops.object.editmode_toggle()
     obj.hide_set(True)
 
 for obj in bpy.context.scene.objects:
