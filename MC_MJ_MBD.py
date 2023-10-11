@@ -67,7 +67,8 @@ for texture, materials in mapping.items():
 ## Join meshes with same material
 #
 
-bpy.ops.object.select_all(action='DESELECT')
+if bpy.ops.object.select_all.poll():
+    bpy.ops.object.select_all(action='DESELECT')
 
 while bpy.context.visible_objects:
     for obj in bpy.context.visible_objects:
@@ -82,8 +83,10 @@ while bpy.context.visible_objects:
         bpy.ops.object.join()
     if bpy.ops.object.editmode_toggle.poll():
         bpy.ops.object.editmode_toggle()
-    bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.remove_doubles()
+    if bpy.ops.mesh.select_all.poll():
+        bpy.ops.mesh.select_all(action='SELECT')
+    if bpy.ops.mesh.remove_doubles.poll():
+        bpy.ops.mesh.remove_doubles()
     if bpy.ops.object.editmode_toggle.poll():
         bpy.ops.object.editmode_toggle()
     obj.hide_set(True)
