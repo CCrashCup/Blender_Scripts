@@ -77,8 +77,8 @@ while bpy.context.visible_objects:
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.select_linked(type='MATERIAL')
-    bpy.context.view_layer.objects.active = obj
-    bpy.ops.object.join()
+    if bpy.ops.object.join.poll():
+        bpy.ops.object.join()
     bpy.ops.object.editmode_toggle()
     bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.mesh.remove_doubles()
