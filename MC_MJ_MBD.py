@@ -50,8 +50,18 @@ for texture, materials in mapping.items():
                 if obj.type == 'MESH':
                     for poly in obj.data.polygons:
                         if obj.material_slots[poly.material_index].material == mat:
-                            obj.material_slots[poly.material_index].material = main_material
-            bpy.data.materials.remove(mat)
+                            try:
+                                obj.material_slots[poly.material_index].material = main_material
+                            except:
+                                print("------------------------------------")
+                                continue
+#            print(obj)                 # for debugging
+#            print(mat)                 # for debugging
+            try:
+                bpy.data.materials.remove(mat)
+            except:
+                print("++++++++++++++++++++++++++++++++++++")
+                continue
 
 #
 ## Join meshes with same material
@@ -63,6 +73,7 @@ while bpy.context.visible_objects:
     for obj in bpy.context.visible_objects:
         if obj.type == 'MESH':
             break
+#    print(obj)                 # for debugging
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.select_linked(type='MATERIAL')
