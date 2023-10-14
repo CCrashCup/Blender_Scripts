@@ -1,6 +1,7 @@
 # Material Colate - Mesh Join - Merge By Distance
 #
 #     Coded by Lofty
+#     Based on code by Erik Marberg.
 #     This is a script to colate Materials by Texture,
 #     Join the Meshes for each Material,
 #     Very specialized, results may vary.
