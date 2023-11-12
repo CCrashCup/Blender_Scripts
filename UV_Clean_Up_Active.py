@@ -17,7 +17,7 @@ for obj in bpy.context.selected_objects:
     if obj.type == 'MESH':
         countT += 1
         uvs = [uv for uv in obj.data.uv_layers 
-                if uv !=  obj.data.uv_layers.active]
+                if not uv.active_render]
         while uvs:
             obj.data.uv_layers.remove(uvs.pop())
             countD += 1
