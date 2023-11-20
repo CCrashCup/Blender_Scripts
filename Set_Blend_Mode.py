@@ -22,13 +22,13 @@ for obj in bpy.context.selected_objects:
     if obj.type == 'MESH':
         for slot in obj.material_slots:
             if slot.material not in mat_list:
+                mat_list.append(slot.material)
                 mat = slot.material
                 nodes = mat.node_tree.nodes
                 nodeB = nodes.get("Principled BSDF")
                 if nodeB.inputs['Alpha'].links:
                     mat.blend_method = blend_mode
                     count += 1
-                    mat_list.append(slot.material)
 
 print("*****************************************************************************")
 print(f"{count} materials alpha adjusted.")
