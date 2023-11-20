@@ -14,6 +14,10 @@ if bpy.ops.object.mode_set.poll():
 BlendMode   = False
 BackFace    = True
 
+#
+## Be sure to set the intended value(s) below, that you want for any properties flagged True above.
+#
+
 #blend_mode = 'OPAQUE'
 #blend_mode = 'CLIP'
 #blend_mode = 'HASHED'
