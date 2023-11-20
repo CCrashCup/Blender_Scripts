@@ -11,7 +11,7 @@ if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
 
 # Properties to set must be True otherwise False
-BlendMode   = True
+BlendMode   = False
 BackFace    = True
 
 #blend_mode = 'OPAQUE'
@@ -39,7 +39,7 @@ for obj in bpy.context.selected_objects:
                         mat.blend_method = blend_mode
                         blend_mode_count += 1
                 if BackFace:
-                        mat.use_backface_culling = True
+                        mat.use_backface_culling = back_face
                         back_face_count += 1
 
 print("*****************************************************************************")
