@@ -11,8 +11,8 @@ if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
 
 # Properties to set must be True otherwise False
-AlphaValue  = True
 EmitPower   = True
+AlphaValue  = True
 BackFace    = True
 BlendMode   = True
 
@@ -20,11 +20,11 @@ BlendMode   = True
 ## Be sure to set the intended value(s) below, that you want for any properties flagged True above.
 #
 
-alpha_value = 1.0
-alpha_value_count  = 0
-
 emit_power  = 1.0
 emit_power_count  = 0
+
+alpha_value = 1.0
+alpha_value_count  = 0
 
 back_face   = False
 #back_face   = True
@@ -46,13 +46,13 @@ for obj in bpy.context.selected_objects:
                 mat = slot.material
                 nodes = mat.node_tree.nodes
                 nodeB = nodes.get("Principled BSDF")
+                if EmitPower:
+                    nodeB.inputs['Emission Strength'].default_value = emit_power
+                    emit_power_count += 1
                 if AlphaValue:
                     if not nodeB.inputs['Alpha'].links:
                         nodeB.inputs['Alpha'].default_value = alpha_value
                         alpha_value_count += 1
-                if EmitPower:
-                    nodeB.inputs['Emission Strength'].default_value = emit_power
-                    emit_power_count += 1
                 if BackFace:
                     mat.use_backface_culling = back_face
                     back_face_count += 1
@@ -62,10 +62,10 @@ for obj in bpy.context.selected_objects:
                         blend_mode_count += 1
 
 print("*****************************************************************************")
+if EmitPower:
+    print(f"{emit_power_count} materials had Emission Strength set to {emit_power}.")
 if AlphaValue:
     print(f"{alpha_value_count} materials had Alpha set to {alpha_value}.")
-if BackFace:
-    print(f"{emit_power_count} materials had Emission Strength set to {emit_power}.")
 if BackFace:
     print(f"{back_face_count} materials had BackFace Culling set to {back_face}.")
 if BlendMode:
