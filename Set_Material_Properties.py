@@ -11,7 +11,7 @@ if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
 
 # Properties to set must be True otherwise False
-BlendMode   = False
+BlendMode   = True
 BackFace    = True
 
 #
@@ -48,6 +48,6 @@ for obj in bpy.context.selected_objects:
 
 print("*****************************************************************************")
 if BlendMode:
-    print(f"{blend_mode_count} materials had Alpha Blend Mode set.")
+    print(f"{blend_mode_count} materials had Alpha Blend Mode set to {blend_mode}.")
 if BackFace:
-    print(f"{back_face_count} materials had BackFace Culling set.")
+    print(f"{back_face_count} materials had BackFace Culling set to {back_face}.")
