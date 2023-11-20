@@ -63,7 +63,7 @@ for obj in bpy.context.selected_objects:
 
 print("*****************************************************************************")
 if AlphaValue:
-    print(f"{alpha_value_count} materials had Emission Strength set to {alpha_value}.")
+    print(f"{alpha_value_count} materials had Alpha set to {alpha_value}.")
 if BackFace:
     print(f"{emit_power_count} materials had Emission Strength set to {emit_power}.")
 if BackFace:
