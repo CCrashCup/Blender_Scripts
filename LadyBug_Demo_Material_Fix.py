@@ -1,4 +1,6 @@
-# LadyBug Demo Material Fix by Lofty
+# LadyBug Demo Material Fix
+#
+#     Coded by Lofty
 #
 #     This is a short script to walk through the materials for
 #     every selected object in a scene and link the connections
