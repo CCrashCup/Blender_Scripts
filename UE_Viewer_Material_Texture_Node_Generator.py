@@ -144,7 +144,7 @@ for obj in bpy.context.selected_objects:	# Only selected objects
                         table_size = len(path_table)
                     if "_Glass_" in matlname or "skylight" in matlname:
                         slot.material.blend_method = 'BLEND'
-                        nodeBP.inputs['Alpha'].default_value = 0.3
+                        nodeBP.inputs['Alpha'].default_value = 0.75
                     mpath = base_path + matlpath + mat_ext
                     if os.path.isfile(mpath):
                         locX = 800
