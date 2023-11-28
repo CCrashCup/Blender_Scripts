@@ -165,7 +165,6 @@ for obj in bpy.context.selected_objects:	# Only selected objects
                                         pref_path = base_path + path
                                         break
                             tpath = pref_path + ".tga"
-                            print("T Path = ", tpath)
                             if not os.path.isfile(tpath):
                                 tpath = pref_path + ".png"
                             if not os.path.isfile(tpath):
