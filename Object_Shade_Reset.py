@@ -11,7 +11,7 @@ import bpy
 import math
 from math import *
 
-ASangle = 45        # AutoSmooth angle to use.
+ASangle = 30        # AutoSmooth angle to use.
 AutoSmooth = True   # If True, do AutoSmooth. If False, check Smooth.
 
 Smooth = True       # If True and AutoSmooth is False, do Smooth. If both are False, do Flat.
