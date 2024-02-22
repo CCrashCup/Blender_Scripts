@@ -4,7 +4,7 @@
 #   Coded by Lofty
 # 
 #   This script is used to walk through every selected object in a scene,
-#   clearing any custom notmals data and then changing the object shading
+#   clearing any custom Normals data and then changing the object shading
 #   based on the selected criteria.
 #
 import bpy
