@@ -1,0 +1,13 @@
+To see any output messages or errors:
+[Window][Toggle System Console]
+
+To load and run the script:
+Click on the [Scripting] TAB at the top of the screen.
+In the [Text Editor] Viewport, click [Open].
+Find the script file and load it.
+Scripts usually operate on specific objects.
+The criteria will vary, but I usually tell in the description.
+Do what is needed to insure all the relevant objects are in the
+3D Viewport and, if required, are selected.
+Click the "Play" button in the [Text Editor] Viewport.
+After it is finished, click the [Layout] TAB again.
