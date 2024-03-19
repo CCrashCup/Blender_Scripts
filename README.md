@@ -8,3 +8,5 @@ There is little to no error checking, so if a script fails be sure to read the e
 Scripts dealing with materials are presuming the use of a Principled BSDF node.
 Be aware that the Blender Foundation routinely makes changes to Blender. This can impact any script from working across all versions.
 If you have an issue with any of my scripts, please let me know.
+
+When I encounter hiccups going to Blender 4.0, I will make the changes needed. If you encounter any, send me a message.
