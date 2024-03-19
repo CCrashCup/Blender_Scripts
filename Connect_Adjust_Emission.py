@@ -27,10 +27,14 @@ for obj in bpy.context.selected_objects:
                     if node.type == 'BSDF_PRINCIPLED':
                         nodeB = node
                 sockC = nodeB.inputs['Base Color'].links[0].from_socket
-                if not nodeB.inputs['Emission'].links[0]:
-                    links.new(sockC,nodeB.inputs['Emission'])
-                if node.inputs["Emission Strength"].default_value == emit_power_old:
-                    node.inputs["Emission Strength"].default_value = emit_power_new
+                if bpy.app.version > (3, 6, 99):
+                    if not nodeB.inputs['Emission Color']:
+                        links.new(sockC,nodeB.inputs['Emission'])
+                else:
+                    if not nodeB.inputs['Emission']:
+                        links.new(sockC,nodeB.inputs['Emission'])
+                if nodeB.inputs["Emission Strength"].default_value == emit_power_old:
+                    nodeB.inputs["Emission Strength"].default_value = emit_power_new
                 count += 1
                 mat_list.append(mat)
 
