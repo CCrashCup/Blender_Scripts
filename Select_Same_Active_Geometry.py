@@ -20,13 +20,13 @@ print("***************************************************")
 
 for obj in bpy.data.objects:
     obj.select_set(False)
-    if obj.type == 'MESH':
-        mesh = obj.data
-        tallyT += 1
-        if len(mesh.vertices)  == len(hA.vertices) and \
-           len(mesh.edges)     == len(hA.edges)    and \
-           len(mesh.polygons)  == len(hA.polygons):
-            if obj not in obj_select:
+    if obj not in obj_select:
+        if obj.type == 'MESH':
+            mesh = obj.data
+            tallyT += 1
+            if len(mesh.vertices)  == len(hA.vertices) and \
+               len(mesh.edges)     == len(hA.edges)    and \
+               len(mesh.polygons)  == len(hA.polygons):
                 obj_select.append(obj)
 for obj in obj_select:
     obj.select_set(True)
