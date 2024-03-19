@@ -23,9 +23,7 @@ for obj in bpy.context.selected_objects:
             if slot.material not in mat_list:
                 mat = slot.material
                 links = mat.node_tree.links
-                for node in mat.node_tree.nodes:
-                    if node.type == 'BSDF_PRINCIPLED':
-                        nodeB = node
+                nodeB = nodes.get("Principled BSDF")
                 sockC = nodeB.inputs['Base Color'].links[0].from_socket
                 if bpy.app.version > (3, 6, 99):
                     if not nodeB.inputs['Emission Color']:
