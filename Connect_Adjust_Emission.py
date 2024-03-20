@@ -25,7 +25,7 @@ for obj in bpy.context.selected_objects:
                 links = mat.node_tree.links
                 nodeB = nodes.get("Principled BSDF")
                 sockC = nodeB.inputs['Base Color'].links[0].from_socket
-                if bpy.app.version > (3, 6, 99):
+                if bpy.app.version < (4, 0, 0):
                     if not nodeB.inputs['Emission Color']:
                         links.new(sockC,nodeB.inputs['Emission'])
                 else:
