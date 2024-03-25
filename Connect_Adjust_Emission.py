@@ -23,18 +23,19 @@ for obj in bpy.context.selected_objects:
             if slot.material not in mat_list:
                 mat = slot.material
                 links = mat.node_tree.links
+                nodes = mat.node_tree.nodes
                 nodeB = nodes.get("Principled BSDF")
-                sockC = nodeB.inputs['Base Color'].links[0].from_socket
+                nodeT = nodeB.inputs['Base Color'].links[0].from_node
                 if bpy.app.version < (4, 0, 0):
-                    if not nodeB.inputs['Emission Color']:
-                        links.new(sockC,nodeB.inputs['Emission'])
+                    if not nodeB.inputs['Emission'].is_linked:
+                        links.new(nodeT.outputs[0],nodeB.inputs['Emission'])
                 else:
-                    if not nodeB.inputs['Emission']:
-                        links.new(sockC,nodeB.inputs['Emission'])
+                    if not nodeB.inputs['Emission Color'].is_linked:
+                        links.new(nodeT.outputs[0],nodeB.inputs['Emission Color'])
                 if nodeB.inputs["Emission Strength"].default_value == emit_power_old:
                     nodeB.inputs["Emission Strength"].default_value = emit_power_new
                 count += 1
                 mat_list.append(mat)
 
 print("*****************************************************************************")
-print(f"{count} materials got Gamma inserted.")
+print(f"{count} materials got Emission adjusted.")
