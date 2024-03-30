@@ -9,8 +9,9 @@
 #
 import bpy
 
-#scale = 0.0004875       # Armored Core 6
-scale = 0.000975        # Gundam Breaker Mobile
+#scale = 0.0004875           # Armored Core 6
+#scale = 0.000975            # Gundam Breaker Mobile
+scale = 0.00024375          # War Thunder's CDK
 
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
