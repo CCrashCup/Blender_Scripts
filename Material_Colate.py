@@ -54,14 +54,12 @@ for texture, materials in mapping.items():
                                 print("    Main Mat = ", main_material.name)
                                 print("    Material = ", mat.name)
                                 print("    Texture  = ", texture)
-                                continue
             try:
                 bpy.data.materials.remove(mat)
                 countD += 1
             except:
                 print("+++++++++++ Remove Error +++++++++++")
                 print("    Material = ", mat.name)
-                continue
 
 print("********************************************************************************")
 print(f"{countU} object materials updated.")
