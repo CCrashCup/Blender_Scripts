@@ -9,7 +9,7 @@ import bpy
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
 
-minimum = 4
+minimum = 2
 countD = 0
 countT = 0
 
