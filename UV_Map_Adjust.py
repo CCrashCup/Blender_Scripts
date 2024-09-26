@@ -19,10 +19,10 @@ import bpy
 #X_center = 0.5                # Gundam Breaker Mobile
 #Y_center = 0.5                # Gundam Breaker Mobile
 
-X_scale = 0.000244140625      # War Thunder's CDK
-Y_scale = 0.000244140625      # War Thunder's CDK
-X_center = 0.4999             # War Thunder's CDK
-Y_center = 0.5045             # War Thunder's CDK
+X_scale = 0.000244140625      # War Thunder CDK
+Y_scale = 0.000244140625      # War Thunder CDK
+X_center = 0.4999             # War Thunder CDK
+Y_center = 0.5045             # War Thunder CDK
 
 FLIP = False
 
