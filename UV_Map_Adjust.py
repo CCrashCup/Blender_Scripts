@@ -19,23 +19,23 @@ import bpy
 #X_center = 0.5                # Gundam Breaker Mobile
 #Y_center = 0.5                # Gundam Breaker Mobile
 
-#X_scale = 0.00024375          # War Thunder's CDK
-#Y_scale = 0.00024375          # War Thunder's CDK
-#X_center = 0.5                # War Thunder's CDK
-#Y_center = 0.5                # War Thunder's CDK
+X_scale = 0.000244140625      # War Thunder's CDK
+Y_scale = 0.000244140625      # War Thunder's CDK
+X_center = 0.4999             # War Thunder's CDK
+Y_center = 0.5045             # War Thunder's CDK
+
+FLIP = False
 
 
 # These don't seem to be accurately consistent across all objects/materials
-X_scale = 0.00388935
+#X_scale = 0.00388935
 #X_scale = 0.00387             # Arma 3 from NR 1.7.1 rip / needs FLIP
-Y_scale = 0.003885            # Arma 3 from NR 1.7.1 rip / needs FLIP
-X_center = 0.5             # Arma 3 from NR 1.7.1 rip / needs FLIP
+#Y_scale = 0.003885            # Arma 3 from NR 1.7.1 rip / needs FLIP
+#X_center = 0.5                # Arma 3 from NR 1.7.1 rip / needs FLIP
 #X_center = 0.4975             # Arma 3 from NR 1.7.1 rip / needs FLIP
-Y_center = 0.498125           # Arma 3 from NR 1.7.1 rip / needs FLIP
+#Y_center = 0.498125           # Arma 3 from NR 1.7.1 rip / needs FLIP
 #Y_center = 0.500125           # Arma 3 from NR 1.7.1 rip / needs FLIP
-
-#FLIP = False
-FLIP = True
+#FLIP = True
 
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
