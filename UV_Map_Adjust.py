@@ -9,20 +9,25 @@
 #
 import bpy
 
-X_scale = 0.0004925           # Dark Souls III
-Y_scale = 0.0004925           # Dark Souls III
-X_center = 0.504925           # Dark Souls III
-Y_center = 0.5                # Dark Souls III
-
 #X_scale = 0.0004875           # Armored Core 6
 #Y_scale = 0.0004875           # Armored Core 6
 #X_center = 0.5                # Armored Core 6
 #Y_center = 0.5                # Armored Core 6
 
+#X_scale = 0.0004925           # Dark Souls III
+#Y_scale = 0.0004925           # Dark Souls III
+#X_center = 0.504925           # Dark Souls III
+#Y_center = 0.5                # Dark Souls III
+
 #X_scale = 0.000975            # Gundam Breaker Mobile
 #Y_scale = 0.000975            # Gundam Breaker Mobile
 #X_center = 0.5                # Gundam Breaker Mobile
 #Y_center = 0.5                # Gundam Breaker Mobile
+
+X_scale = 0.001               # Lost: Via Domus
+Y_scale = 0.001               # Lost: Via Domus
+X_center = 0.5                # Lost: Via Domus
+Y_center = 0.5                # Lost: Via Domus
 
 #X_scale = 0.000244140625      # War Thunder CDK
 #Y_scale = 0.000244140625      # War Thunder CDK
