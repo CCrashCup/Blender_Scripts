@@ -31,8 +31,8 @@ import bpy
 
 X_scale = 0.000244140625      # War Thunder's CDK
 Y_scale = 0.000244140625      # War Thunder's CDK
-X_center = 0.4999             # War Thunder's CDK
-Y_center = 0.5045             # War Thunder's CDK
+X_center = 0.4999             # War Thunder's CDK - Have had to adjust these for different rips.
+Y_center = 0.5045             # War Thunder's CDK - Should be 0.5 for both. Your results might vary.
 
 
 FLIP = False
