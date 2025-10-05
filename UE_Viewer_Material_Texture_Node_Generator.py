@@ -114,6 +114,7 @@ isHOLD = False
 doNOODLE = True
 table_size = 0
 path_table = []
+mat_list = []
 
 ### Change which line you use, based on what you want.
 #for obj in bpy.data.objects:			# Entire scene
@@ -122,6 +123,9 @@ for obj in bpy.context.selected_objects:	# Only selected objects
         count += 1
         for slot in obj.material_slots:
             if slot.material:
+                if slot.material in mat_list:
+                    continue
+                mat_list.append(slot.material)
                 matl = slot.material
                 matl.use_nodes = True
                 isBSDF = False
@@ -300,3 +304,4 @@ for obj in bpy.context.selected_objects:	# Only selected objects
 
 print("*******************************************************************************")
 print(f"{countT} texture node groups relinked out of {count} mesh(es).")
+
