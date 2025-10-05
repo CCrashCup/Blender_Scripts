@@ -36,7 +36,9 @@ print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 for obj in bpy.context.selected_objects:
     if obj.type == 'MESH':
         for slot in obj.material_slots:
-            if slot.material not in mat_list:
+            if slot.material:
+                if slot.material in mat_list:
+                    continue
                 mat_list.append(slot.material)
                 mat = slot.material
                 nodeBP = mat.node_tree.nodes.get("Principled BSDF")
