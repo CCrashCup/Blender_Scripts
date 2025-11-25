@@ -1,7 +1,7 @@
 # Select Same As Active Geometry
 #
 #   Coded by Lofty
-#   To select all objects in the scene that are the same as the
+#   To select all visible objects in the scene that are the same as the
 #   currently active object based on vertex, edge, and polygon counts.
 #
 import bpy
@@ -18,7 +18,7 @@ hA = holdActive.data
 obj_select = []
 print("***************************************************")
 
-for obj in bpy.data.objects:
+for obj in bpy.context.visible_objects:
     obj.select_set(False)
     if obj not in obj_select:
         if obj.type == 'MESH':
@@ -34,3 +34,4 @@ for obj in obj_select:
     
 bpy.context.view_layer.objects.active = holdActive
 print(f"{tallyO} objects selected. A total of {tallyT} objects examined.")
+
