@@ -1,7 +1,7 @@
 # Select By UV Map Count
 #
 #   Coded by Lofty
-#   To select all objects in the scene that have the specified number of UV Maps.
+#   To select all visible objects in the scene that have the specified number of UV Maps.
 #
 import bpy
 
@@ -16,7 +16,7 @@ tallyT = 0
 obj_select = []
 print("***************************************************")
 
-for obj in bpy.data.objects:
+for obj in bpy.context.visible_objects:
     obj.select_set(False)
     if obj not in obj_select:
         if obj.type == 'MESH':
