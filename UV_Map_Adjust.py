@@ -3,7 +3,7 @@
 #   Coded by Lofty
 #
 ########## NOTE: This workaround might not be needed as the ripper improves.
-#                I have started using the [UV_ReMap.py](https://github.com/CCrashCup/Blender_Scripts/edit/main/UV_ReMap.py) script instead of this one.
+#                I have started using the https://github.com/CCrashCup/Blender_Scripts/edit/main/UV_ReMap.py script instead of this one.
 #
 #   This is a script to center and scale the Active Render UV Map
 #   for all the visible objects in the scene.
@@ -81,6 +81,7 @@ for obj in bpy.context.visible_objects:
             bpy.ops.object.mode_set(mode = 'OBJECT')
             obj.select_set(False)
             bpy.context.area.ui_type = 'TEXT_EDITOR'
+
 
 
 
