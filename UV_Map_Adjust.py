@@ -2,6 +2,8 @@
 #
 #   Coded by Lofty
 #
+########## NOTE: This workaround might not be needed as the ripper improves.
+#
 #   This is a script to center and scale the Active Render UV Map
 #   for all the visible objects in the scene.
 #   Select or set the "scale" variable that works for your project.
@@ -78,3 +80,4 @@ for obj in bpy.context.visible_objects:
             bpy.ops.object.mode_set(mode = 'OBJECT')
             obj.select_set(False)
             bpy.context.area.ui_type = 'TEXT_EDITOR'
+
