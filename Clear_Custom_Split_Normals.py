@@ -10,13 +10,19 @@ import bpy
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
 
-count = 0
+count_S = 0
+count_T = 0
 print("*****************************************************************************")
 for obj in bpy.context.selected_objects:
     if obj.type == 'MESH':
+        count_T += 1
         bpy.context.view_layer.objects.active = obj
-        bpy.ops.mesh.customdata_custom_splitnormals_clear()
-        count += 1
+        try:
+            bpy.ops.mesh.customdata_custom_splitnormals_clear()
+        except:
+            count_S -= 1
+        count_S += 1
 
 print("*****************************************************************************")
-print(f"{count} Custom Split Normals cleared.")
+print(f"{count_S} Custom Split Normals cleared.")
+print(f"{count_T} Total Meshes.")
