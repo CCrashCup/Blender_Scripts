@@ -5,13 +5,14 @@
 #   To make the specified UV Map be the Active UV Map for all visible
 #   objects with the specified UV Map count and Texture node count.
 #   Be sure to set the values before running this script.
+#   UV_active is converted to relative index in the code.
 #   
 #
 import bpy
 
-UV_active = 1       # 1 thru 8 is normal. If your version of Blender allows more, go for it.
-UV_count = 1        # Must be at least 1. Must not be less than UV_active number.
-TX_count = 0        # 0 or more is allowed.
+UV_active = 6       # 1 thru 8 is normal. If your version of Blender allows more, go for it.
+UV_count = 8        # Must be at least 1. Must not be less than UV_active number.
+TX_count = 19        # 0 or more is allowed.
 
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
