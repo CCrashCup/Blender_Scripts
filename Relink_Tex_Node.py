@@ -16,7 +16,7 @@
 #
 import bpy
 
-offset_TC = 0
+offset_TC = 0            # Set this value based on the template above.
 
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
