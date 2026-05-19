@@ -7,7 +7,7 @@
 #     of every Image Texture node to the Vector output of the
 #     added/inserted Texture Coordinate node and Mapping node.
 #
-#     Be sure to set the Location, Rotation, and Scale values.
+#     Be sure to set the Mapping Type, Location, Rotation, and Scale values.
 #
 #     Note: Here is the layout template of the Image Texture Nodes.
 #
@@ -19,7 +19,12 @@
 
 import bpy
 
+# 
 # Mapping Defaults
+#
+
+Map_Type = 'TEXTURE'            # This scales the Image to fit the UV Map.
+#Map_Type = 'POINT'             # This scales the UV Map to fit the Image.
 
 Loc_X = 0.0
 Loc_Y = 0.0
@@ -52,6 +57,7 @@ for obj in bpy.context.visible_objects:
 
                 nodeMAP = mat.node_tree.nodes.new("ShaderNodeMapping")
                 nodeMAP.location = (nodeBP.location.x - 1200), (nodeBP.location.y)
+                nodeMAP.vector_type = Map_Type
                 nodeCOR = mat.node_tree.nodes.new("ShaderNodeTexCoord")
                 nodeCOR.location = (nodeBP.location.x - 1500), (nodeBP.location.y)
                 mat.node_tree.links.new(nodeCOR.outputs['UV'], nodeMAP.inputs['Vector'])
