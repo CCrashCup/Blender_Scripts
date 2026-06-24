@@ -3,11 +3,13 @@
 #   Coded by Lofty
 #   To select all visible objects in the scene that are the same as the
 #   currently active object based on vertex, edge, and polygon counts.
-#   Optionally include a UV Map compare. Set UV_test to True or False.
+#   Optionally include a UV Map compare. Set UV_TEST to True or False.
+#   Optionally select only the duplicates. Set DUPES_ONLY to True or False.
 #
 import bpy
 
-UV_test = True
+UV_TEST = False
+DUPES_ONLY = False
 
 if bpy.ops.object.mode_set.poll():
     bpy.ops.object.mode_set(mode='OBJECT')
@@ -31,6 +33,7 @@ tallyT = 0
 
 holdActive = bpy.context.active_object
 hA = holdActive.data
+bpy.context.view_layer.objects.active = None
 
 obj_select = []
 print("***************************************************")
@@ -39,12 +42,14 @@ for obj in bpy.context.visible_objects:
     obj.select_set(False)
     if obj not in obj_select:
         if obj.type == 'MESH':
-            mesh = obj.data
             tallyT += 1
+            if obj == holdActive and DUPES_ONLY:
+                continue
+            mesh = obj.data
             if len(mesh.vertices)  == len(hA.vertices) and \
                len(mesh.edges)     == len(hA.edges)    and \
                len(mesh.polygons)  == len(hA.polygons):
-                if UV_test:
+                if UV_TEST:
                     if compare_uvs(holdActive, obj):
                         obj_select.append(obj)
                 else:
@@ -53,6 +58,7 @@ for obj in obj_select:
     obj.select_set(True)
     tallyO += 1
     
-bpy.context.view_layer.objects.active = holdActive
+if not DUPES_ONLY:
+    bpy.context.view_layer.objects.active = holdActive
 print(f"{tallyO} objects selected. A total of {tallyT} objects examined.")
 
