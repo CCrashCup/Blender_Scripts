@@ -24,8 +24,14 @@ for obj in bpy.context.selected_objects:
                 mat = slot.material
                 links = mat.node_tree.links
                 nodes = mat.node_tree.nodes
-                nodeB = nodes.get("Principled BSDF")
-                nodeT = nodeB.inputs['Base Color'].links[0].from_node
+                try:
+                    nodeB = nodes.get("Principled BSDF")
+                except:
+                    continue
+                try:
+                    nodeT = nodeB.inputs['Base Color'].links[0].from_node
+                except:
+                    continue
                 if bpy.app.version < (4, 0, 0):
                     if not nodeB.inputs['Emission'].is_linked:
                         links.new(nodeT.outputs[0],nodeB.inputs['Emission'])
