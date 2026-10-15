@@ -34,7 +34,7 @@ for obj in bpy.context.selected_objects:
                 except:
                     continue
                 if not nodeB.inputs['Alpha'].is_linked:
-                    links.new(nodeT.outputs[0],nodeB.inputs['Alpha'])
+                    links.new(nodeT.outputs['Alpha'],nodeB.inputs['Alpha'])
                 if nodeT.image:
                     nodeT.image.alpha_mode = 'CHANNEL_PACKED'
                 count += 1
