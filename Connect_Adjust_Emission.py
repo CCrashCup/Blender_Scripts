@@ -34,10 +34,10 @@ for obj in bpy.context.selected_objects:
                     continue
                 if bpy.app.version < (4, 0, 0):
                     if not nodeB.inputs['Emission'].is_linked:
-                        links.new(nodeT.outputs[0],nodeB.inputs['Emission'])
+                        links.new(nodeT.outputs['Color'],nodeB.inputs['Emission'])
                 else:
                     if not nodeB.inputs['Emission Color'].is_linked:
-                        links.new(nodeT.outputs[0],nodeB.inputs['Emission Color'])
+                        links.new(nodeT.outputs['Color'],nodeB.inputs['Emission Color'])
                 if nodeB.inputs["Emission Strength"].default_value == emit_power_old:
                     nodeB.inputs["Emission Strength"].default_value = emit_power_new
                 count += 1
